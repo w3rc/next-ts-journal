@@ -8,5 +8,5 @@ export const DI = styled.div`
 	height: 30px;
 	background-color: #fff;
 	position: relative;
-	margin: 20px 30px;
+	margin: 25px 30px;
 `;
