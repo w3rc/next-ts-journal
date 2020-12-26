@@ -9,6 +9,16 @@ export const ContextMenu = styled.div`
 	flex-flow: column;
 	position: absolute;
 	width: 160px;
+	animation: scaleUp 0.3s linear;
+	@keyframes scaleUp {
+		0% {
+			transform-origin: 0% 0%;
+			transform: scale(0);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
 `;
 export const ContextMenuItem = styled.div`
 	color: #fff;
