@@ -1,20 +1,25 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 import { DI } from './dailyItem.styled';
 import Context from '../shared/ContextMenu';
 
 const DailyItem = (
-    { context, setContext }: { context: boolean, setContext: Dispatch<SetStateAction<boolean>>; }
+    { setContext, closeContext, contextId, setContextPosition }: { setContext: Dispatch<SetStateAction<boolean>>; closeContext: () => void; contextId: string; setContextPosition: Dispatch<SetStateAction<{ x: number; y: number; }>>; }
 ) => {
-    return <>
+
+    return (
         <DI onContextMenu={(event) => {
             event.preventDefault();
+            if (contextId.trim().length > 0) {
+                closeContext();
+            }
+            console.log(event.clientX, event.clientY);
+            setContextPosition({ x: event.clientX + 5, y: event.clientY + 10 });
             setContext(true);
-        }}>
-           
-        </DI>
+        }} />
+    );
 
 
-    </>;
+
 };
 
 export default DailyItem;
